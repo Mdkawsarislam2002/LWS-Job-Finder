@@ -1,17 +1,19 @@
+import { Link } from "react-router-dom";
+
 const SideBar = () => {
   return (
     <div className="sidebar">
       <nav>
         <ul className="space-y-4">
           <li>
-            <a
-              href="/jobs"
+            <Link
+              to="/"
               className="main-menu menu-active"
               id="lws-alljobs-menu"
             >
               <i className="fa-solid fa-briefcase"></i>
               <span> All Available Jobs</span>
-            </a>
+            </Link>
             <ul className="space-y-6 lg:space-y-2">
               <li>
                 <a
@@ -46,10 +48,10 @@ const SideBar = () => {
             </ul>
           </li>
           <li>
-            <a href="/jobs" className="main-menu" id="lws-addJob-menu">
+            <Link to={"add"} className="main-menu" id="lws-addJob-menu">
               <i className="fa-solid fa-file-circle-plus"></i>
               <span>Add NewJob</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

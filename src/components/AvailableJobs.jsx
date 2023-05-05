@@ -1,6 +1,16 @@
+import { useDispatch, useSelector } from "react-redux";
 import SingleJobs from "./SingleJobs";
+import { useEffect } from "react";
+import { fetchJobs } from "../Redux/Jobs/JobsApi";
 
 const AvailableJobs = () => {
+  const dispatch = useDispatch();
+  const { jobs } = useSelector((state) => state?.jobs);
+
+  useEffect(() => {
+    dispatch(fetchJobs());
+  }, [dispatch]);
+
   return (
     <div>
       <div className="md:flex space-y-2 md:space-y-0 justify-between mb-10">
@@ -28,8 +38,8 @@ const AvailableJobs = () => {
         </div>
       </div>
 
-      {[1, 52, 45, 5].map((items, index) => {
-        return <SingleJobs key={index} />;
+      {jobs?.map((data, index) => {
+        return <SingleJobs key={index} data={data} />;
       })}
     </div>
   );

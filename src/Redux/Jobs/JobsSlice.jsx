@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchJobs } from "./JobsApi";
+import { fetchJobs, deleteJObs } from "./JobsApi";
 
 const initialState = {
   jobs: [],
@@ -23,6 +23,25 @@ const jobsSlice = createSlice({
         state.jobs = action.payload;
       })
       .addCase(fetchJobs.rejected, (state, action) => {
+        state.loading = false;
+        state.isError = true;
+        state.errorMsg = action.error.message;
+      });
+
+    //  delate jobs
+    builder
+      .addCase(deleteJObs.pending, (state, action) => {
+        console.log(action.meta.arg);
+
+        state.loading = true;
+        state.isError = false;
+        state.errorMsg = "";
+      })
+      .addCase(deleteJObs.fulfilled, (state, action) => {
+        state.loading = false;
+        state.jobs = state.jobs.filter((job) => job.id !== action.meta.arg);
+      })
+      .addCase(deleteJObs.rejected, (state, action) => {
         state.loading = false;
         state.isError = true;
         state.errorMsg = action.error.message;
