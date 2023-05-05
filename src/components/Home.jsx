@@ -1,17 +1,18 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchJobs } from "../Redux/Jobs/JobsApi";
+// components
+import AvailableJobs from "./AvailableJobs";
+// import EditJobs from "./EditJobs";
+// import AddNewJobs from "./AddNewJobs";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const { jobs } = useSelector((state) => state.jobs);
-
-  console.log(jobs);
-  useEffect(() => {
-    dispatch(fetchJobs());
-  }, [dispatch]);
-
-  return <div>Home</div>;
+  return (
+    <div className="lg:pl-[14rem] mt-[5.8125rem]">
+      <main className="max-w-3xl rounded-lg mx-auto relative z-20 p-10 xl:max-w-none bg-[#1E293B]">
+        <AvailableJobs />
+        {/* <EditJobs /> */}
+        {/* <AddNewJobs /> */}
+      </main>
+    </div>
+  );
 };
 
 export default Home;

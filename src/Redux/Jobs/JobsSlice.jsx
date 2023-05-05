@@ -13,7 +13,7 @@ const jobsSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(fetchJobs.pending, (state, action) => {
+      .addCase(fetchJobs.pending, (state) => {
         state.loading = true;
         state.isError = false;
         state.errorMsg = "";
