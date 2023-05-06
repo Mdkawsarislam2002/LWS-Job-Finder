@@ -10,6 +10,15 @@ const SingleJobs = ({ data }) => {
   const deleteJobs = () => {
     dispatch(deleteJObs(id));
   };
+  let jobTypeColor;
+  if (type == "Fulltime") {
+    jobTypeColor = "#FF8A00";
+  } else if (type == "Internship") {
+    jobTypeColor = "#FF5757";
+  } else {
+    jobTypeColor = "#56E5C4";
+  }
+
   return (
     <div className="jobs-list">
       <div className="lws-single-job">
@@ -20,7 +29,9 @@ const SingleJobs = ({ data }) => {
               {/* Fulltime - #FF8A00,  */}
               {/* Internship - #FF5757,  */}
               {/* Remote - #56E5C4,  */}
-              <i className="fa-solid fa-stop !text-[#FF8A00] text-lg mr-1.5"></i>
+              <i
+                className={`fa-solid fa-stop !text-[${jobTypeColor}] text-lg mr-1.5`}
+              ></i>
               {type}
             </div>
             <div className="lws-salary">
