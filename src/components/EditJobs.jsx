@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { editExistingJobs } from "../Redux/Jobs/JobsApi";
 import { useDispatch } from "react-redux";
 
 const EditJobs = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
   const { data } = location.state;
@@ -46,6 +47,7 @@ const EditJobs = () => {
         id: data.id,
       })
     );
+    navigate("/");
   };
 
   // deadline
