@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setFilterType } from "../Redux/features/filtersAndSort/Filters";
 
 const SideBar = () => {
+  const dispatch = useDispatch();
+
+  const handleFilterType = (type) => {
+    console.log(type);
+    dispatch(setFilterType(type));
+  };
+
   return (
     <div className="sidebar">
       <nav>
@@ -16,34 +25,40 @@ const SideBar = () => {
             </Link>
             <ul className="space-y-6 lg:space-y-2">
               <li>
-                <a
-                  className="sub-menu"
-                  href="/jobs/internship"
+                <p
+                  onClick={() => {
+                    handleFilterType("Internship");
+                  }}
+                  className="sub-menu cursor-pointer"
                   id="lws-internship-menu"
                 >
                   <i className="fa-solid fa-stop !text-[#FF5757]"></i>
                   Internship
-                </a>
+                </p>
               </li>
               <li>
-                <a
-                  className="sub-menu"
-                  href="/jobs/fulltime"
+                <p
+                  onClick={() => {
+                    handleFilterType("Full Time");
+                  }}
+                  className="sub-menu cursor-pointer"
                   id="lws-fulltime-menu"
                 >
                   <i className="fa-solid fa-stop !text-[#FF8A00]"></i>
                   Full Time
-                </a>
+                </p>
               </li>
               <li>
-                <a
-                  className="sub-menu"
-                  href="/jobs/remote"
+                <p
+                  onClick={() => {
+                    handleFilterType("Remote");
+                  }}
+                  className="sub-menu cursor-pointer"
                   id="lws-remote-menu"
                 >
                   <i className="fa-solid fa-stop !text-[#56E5C4]"></i>
                   Remote
-                </a>
+                </p>
               </li>
             </ul>
           </li>

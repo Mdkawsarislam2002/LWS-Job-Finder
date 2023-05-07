@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteJObs } from "../Redux/Jobs/JobsApi";
+import { deleteJObs } from "../Redux/features/Jobs/JobsApi";
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */

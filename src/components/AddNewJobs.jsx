@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addNewJobs } from "../Redux/Jobs/JobsApi";
+import { addNewJobs } from "../Redux/features/Jobs/JobsApi";
 import { useNavigate } from "react-router-dom";
 
 const AddNewJobs = () => {
